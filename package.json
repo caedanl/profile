@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start": "serve src -p ${PORT:-3000} -s",
+    "start": "serve src -p ${PORT:-3000}",
     "dev": "serve src -p 3000",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
