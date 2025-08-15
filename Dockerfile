@@ -1,10 +1,10 @@
-FROM caddy:2-alpine
+FROM nginx:alpine
 
 # Copy static files
-COPY src/ /srv/
+COPY src/ /usr/share/nginx/html/
 
-# Copy Caddyfile
-COPY Caddyfile /etc/caddy/Caddyfile
+# Copy nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port
 EXPOSE 80
@@ -13,4 +13,4 @@ EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD wget --quiet --tries=1 --spider http://localhost/ || exit 1
 
-# Caddy runs automatically
+# nginx runs automatically
