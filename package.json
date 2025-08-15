@@ -1,0 +1,24 @@
+{
+  "name": "profile",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "serve src -p ${PORT:-3000} -s",
+    "dev": "serve src -p 3000",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:html": "prettier --write \"src/**/*.html\"",
+    "format:css": "prettier --write \"src/**/*.css\""
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.6.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
