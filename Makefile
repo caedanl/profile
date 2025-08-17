@@ -1,18 +1,32 @@
-.PHONY: dev prod stop build clean logs format format-check help
+.PHONY: dev prod stop build clean logs format format-check help init
+
+# Initialize project
+init:
+	@if [ ! -f .env ]; then \
+		cp .env.template .env; \
+		echo "Created .env file from template"; \
+		echo ""; \
+		echo "Next steps:"; \
+		echo "   1. Edit .env file to set your preferred PORT"; \
+		echo "   2. Run 'make dev' to start development environment"; \
+		echo "   3. Run 'make prod' to start production environment"; \
+	else \
+		echo ".env file already exists"; \
+	fi
 
 # Development environment
 dev:
-	docker compose --profile dev up -d
+	ENVIRONMENT=dev docker compose up -d
 
 dev-build:
-	docker compose --profile dev up -d --build
+	ENVIRONMENT=dev docker compose up -d --build
 
 # Production environment  
 prod:
-	docker compose --profile prod up -d
+	ENVIRONMENT=prod docker compose up -d
 
 prod-build:
-	docker compose --profile prod up -d --build
+	ENVIRONMENT=prod docker compose up -d --build
 
 # Stop services
 stop:
@@ -24,10 +38,10 @@ build:
 
 # View logs
 dev-log:
-	docker compose --profile dev logs -f
+	docker logs profile-dev 2>/dev/null || echo "Dev container not running"
 
 prod-log:
-	docker compose --profile prod logs -f
+	docker logs profile-prod 2>/dev/null || echo "Prod container not running"
 
 # Cleanup
 clean:

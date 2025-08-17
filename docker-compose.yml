@@ -1,33 +1,13 @@
 services:
-  web-dev:
+  web:
     build: .
-    image: profile-web-dev
-    container_name: profile-dev
+    image: profile-web-${ENVIRONMENT}
+    container_name: profile-${ENVIRONMENT}
     ports:
       - "${PORT}:80"
     environment:
-      - ENVIRONMENT=dev
+      - ENVIRONMENT=${ENVIRONMENT}
     restart: unless-stopped
-    profiles:
-      - dev
-    healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
-
-  web-prod:
-    build: .
-    image: profile-web-prod
-    container_name: profile-prod
-    ports:
-      - "${PORT}:80"
-    environment:
-      - ENVIRONMENT=prod
-    restart: unless-stopped
-    profiles:
-      - prod
     healthcheck:
       test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
       interval: 30s
