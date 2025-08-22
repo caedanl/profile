@@ -85,7 +85,7 @@ section>header {
   -webkit-transform: translateZ(0);
 }
 
-section>header>h1 {
+section>header>h2 {
   background-color: var(--foreground);
   color: var(--background);
   padding: 0.5em;
