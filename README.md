@@ -1,15 +1,5 @@
 # profile
 
-To install dependencies:
+html because it's a static page and I don't need to prove I can use react
 
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.2.20. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+what's more interesting is how I host/deploy it... ask me about it if you care

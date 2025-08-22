@@ -6,15 +6,9 @@
   --background: var(--dark-red);
   --foreground: var(--light-red);
 
-  /* Inverted colors - exact opposites */
-  --dark-red-inverted: #00001F;
-  /* Opposite of #1F0000 */
-  --light-red-inverted: #1313FF;
-  /* Opposite of #FF1313 */
-
   /* Text selection variables using inverted colors */
-  --selection-background: var(--light-red-inverted);
-  --selection-foreground: var(--dark-red-inverted);
+  --selection-background: white;
+  --selection-foreground: var(--dark-red);
 }
 
 /* Reset and base styles */
@@ -91,7 +85,7 @@ section>header {
   -webkit-transform: translateZ(0);
 }
 
-section>header>h1 {
+section>header>h2 {
   background-color: var(--foreground);
   color: var(--background);
   padding: 0.5em;
