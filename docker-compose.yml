@@ -1,7 +1,7 @@
 services:
   web:
     build: .
-    image: profile-web-${ENVIRONMENT}
+    image: profile-web
     container_name: profile-${ENVIRONMENT}
     ports:
       - "${PORT}:80"
