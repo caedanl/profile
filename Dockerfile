@@ -1,25 +1,16 @@
-FROM oven/bun:1-alpine
+FROM nginx:alpine
 
-WORKDIR /app
+# Copy static files
+COPY src/ /usr/share/nginx/html/
 
-# Install curl for health checks
-RUN apk add --no-cache curl
-
-# Copy package files
-COPY package.json bun.lock ./
-
-# Install dependencies
-RUN bun install --frozen-lockfile
-
-# Copy source code
-COPY . .
+# Copy nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port
-EXPOSE 3000
+EXPOSE 80
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:3000/ || exit 1
+  CMD wget --quiet --tries=1 --spider http://localhost/ || exit 1
 
-# Start the server
-CMD ["bun", "run", "start"]
+# nginx runs automatically
