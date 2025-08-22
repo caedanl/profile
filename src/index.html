@@ -2,42 +2,71 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="color-scheme" content="light">
-    <title>Profile</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <title>obnoxious</title>
 
-    <!-- Resource hints for performance -->
-    <link rel="preload" href="assets/css/styles.css" as="style">
-    <!-- <link rel="prefetch" href="/recruiters"> -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-
-    <!-- Critical CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-
-    <!-- Aggressive local prefetching + instant.page for external -->
-    <script src="assets/js/instant.page.js" type="module" defer data-external-only></script>
+  <!-- Resource hints for performance -->
+  <link rel="preload" href="assets/css/styles.css" as="style">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <!-- Aggressive local prefetching + instant.page for external -->
+  <script src="assets/js/instant.page.js" type="module" defer data-external-only></script>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/recruiters">For Recruiters</a>
-        </nav>
-        <h1>Welcome</h1>
-    </header>
+  <header id="page-title">OBNOXIOUS.DEV</header>
 
-    <main>
-        <section>
-            <p>This is a fast, minimal HTML site.</p>
-        </section>
-    </main>
+  <main>
+    <section>
+      <header>
+        <h1>profile</h1>
+      </header>
 
-    <footer>
-        <p>&copy; 2024</p>
-    </footer>
+      <div>
+        <h2>Caedan</h2>
+        <p>
+          <strong>things I can do</strong>
+        </p>
+        <ul>
+          <li>typescript/react</li>
+          <li>cicd/devops</li>
+          <li>homelab/self-hosting shenanigans</li>
+          <li>hiding things</li>
+          <!-- <li>vim (btw)</li> -->
+          <!-- obviously I can do more than this, talk to me if you want to understand my skillset/experience -->
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <header>
+        <h1>links</h1>
+      </header>
+      <div>
+        find me:
+        <ul>
+          <li>
+            <a href="https://www.github.com/caedanl">github</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/caedan">linkedin</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <a href="recruiters">recruiters...</a>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="current-year">7777</span></p>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>
